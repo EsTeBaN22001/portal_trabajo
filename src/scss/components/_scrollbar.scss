@@ -1,0 +1,9 @@
+@use 'base/variables' as v;
+
+::-webkit-scrollbar{
+  background: v.$black;
+}
+
+::-webkit-scrollbar-thumb{
+  background: v.$darkGray;
+}

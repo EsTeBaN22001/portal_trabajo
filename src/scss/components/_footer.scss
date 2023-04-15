@@ -1,0 +1,14 @@
+@use 'base/variables' as v;
+
+.footer{
+  background: v.$principalColor;
+  // background: -webkit-linear-gradient(to right, v.$gradientColor1, v.$gradientColor3, v.$gradientColor2);
+  // background: linear-gradient(to right, v.$gradientColor1, v.$gradientColor3, v.$gradientColor2);
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto;
+  
+  p{
+    color: v.$white;
+  }
+}

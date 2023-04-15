@@ -1,0 +1,47 @@
+// Importar fuente
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+// Fuentes
+$principalFont: 'Roboto', sans-serif;
+
+// Tamaño de Media Queries
+$breakpointSmartWatch: 320px;
+$breakpointPhone: 410px;
+$phone: 480px;
+$tablet: 768px;
+$breakpointDesktop: 930px;
+$desktop: 1024px;
+
+// Colores
+$bgColor: #ffffff;
+
+// Colores de elementos html
+$titleColor: #000000;
+$textColor: #141414;
+
+// Colores de alertas
+$red:#FF0000;
+$green:#34b822;
+$blue: #37a6e6;
+$yellow: #e5ff00;
+
+// Escala de grises
+$black: #000000;
+$darkGray: #434343;
+$mediumDarkGray: #6b6b6b;
+$gray: #a1a1a1;
+$lightGray: #e0e0e0;
+$white: #FFFFFF;
+
+// Paleta principal de colores
+$principalColor: #203A43;
+$secondaryColor: #0F2027;
+$terciaryColor: #2C5364;
+
+// Colores para gradientes
+// $gradientColor1: #7F7FD5;
+// $gradientColor2: #86A8E7;
+// $gradientColor3: #1cddd0;
+$gradientColor1: #0F2027;
+$gradientColor2: #203A43;
+$gradientColor3: #2C5364;

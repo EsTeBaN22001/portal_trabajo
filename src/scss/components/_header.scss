@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header-container{
+  background: v.$principalColor;
+  // background: -webkit-linear-gradient(to right, v.$gradientColor1, v.$gradientColor3, v.$gradientColor2);
+  // background: linear-gradient(to right, v.$gradientColor1, v.$gradientColor3, v.$gradientColor2);
+  
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    @include m.tablet{
+      flex-direction: column;
+
+      .logo-container{
+        a{
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+    .logo{
+      color: v.$white;
+      font-size: 3rem;
+      font-weight: 600;
+      span{
+        font-size: 3.5rem;
+        font-weight: 1000;
+      }
+    }
+
+    .nav{
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 2rem;
+
+      a{
+        color: v.$white;
+        padding: 1rem;
+        border-bottom: .2rem solid transparent;
+        white-space: nowrap;
+        transition: all .2s ease;
+
+        &:hover{
+          cursor: pointer;
+          border-bottom: .2rem solid v.$white;
+        }
+      }
+    }
+  }
+
+}

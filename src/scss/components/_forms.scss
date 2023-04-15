@@ -1,0 +1,150 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.form {
+  padding: 4rem;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 50rem;
+  background: v.$principalColor;
+  // background: -webkit-linear-gradient(to right, v.$gradientColor1, v.$gradientColor2, v.$gradientColor3);
+  // background: linear-gradient(to right, v.$gradientColor1, v.$gradientColor2, v.$gradientColor3);
+  
+
+
+  h1{
+    color: v.$white;
+    font-size: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  .warning-input {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding-top: 2rem;
+    
+    span {
+      color: lighten(v.$red, 10);
+      font-size: 2.5rem;
+    }
+    
+    p {
+      color: v.$white;
+    }
+  }
+  
+  .field-group-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+
+    @include m.phone {
+      flex-direction: column;
+      column-gap: 0;
+    }
+  }
+
+  .field-group {
+    margin: 2rem 0;
+    position: relative;
+
+    .char-counter {
+      background-color: v.$darkGray;
+      border-radius: .5rem;
+      padding: 1rem;
+      color: v.$white;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      &.error {
+        background-color: v.$red;
+      }
+    }
+
+    label,
+    input,
+    textarea,
+    select {
+      border: none;
+      display: block;
+      width: 100%;
+      color: v.$white;
+      padding: 1rem 0;
+      font-size: 2rem;
+      background-color: transparent;
+      transition: all .3s ease;
+
+      &:focus {
+        outline: none;
+        color: v.$white;
+        // border-bottom: .2rem solid v.$secondaryColor;
+        
+      }
+
+      &::placeholder{
+        color: v.$white;
+      }
+
+    }
+
+    input,
+    textarea,
+    select {
+      border-bottom: .2rem solid v.$white;
+    }
+
+    input {
+      color: v.$white;
+    }
+
+    select {
+      color: v.$white;
+      padding: 1rem;
+
+      option {
+        background-color: v.$darkGray;
+        color: v.$white;
+      }
+    }
+
+    textarea {
+      resize: none;
+      height: 15rem;
+    }
+
+    .button-submit {
+      font-weight: bold;
+      margin-top: 7rem;
+      border: .2rem solid v.$white;
+      border-radius: 1rem;
+      color: v.$white;
+
+      &:hover {
+        background-color: v.$white;
+        color: v.$secondaryColor;
+      }
+    }
+  }
+
+  .field-group-container-radio{
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .radio-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.hide{
+  display: none;
+}

@@ -1,0 +1,23 @@
+@use 'variables' as v;
+
+h1, h2, h3 {
+	font-family: v.$principalFont;
+	margin: 0;
+	font-weight: 200;
+	color: v.$titleColor;
+	text-align: center;
+}
+
+h1 {
+	font-size: 5rem;
+}
+h2 {
+	font-size: 3.5rem;
+}
+h3 {
+	font-size: 2rem;
+}
+p {
+	color: v.$textColor;
+	font-size: 2rem;
+}
