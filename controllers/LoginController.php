@@ -49,7 +49,7 @@ class LoginController{
 
     $alerts = Alumno::getAlerts();
     
-    $router->render('login', [
+    $router->renderLogin('login', [
       'title' => 'Iniciar sesión',
       'alerts' => $alerts
     ]);
@@ -122,7 +122,7 @@ class LoginController{
 
     }
     
-    $router->render('register', [
+    $router->renderLogin('register', [
       'title' => 'Registrate',
       'alerts' => $alerts,
       'alumno' => $alumno,

@@ -10,7 +10,7 @@ class IndexController{
 
     // OBTENER LAS ENCUESTAS MÁS POPULARES
     
-    $router->render('index', [
+    $router->renderLogin('index', [
       'title' => 'Página principal'
     ]);
 
