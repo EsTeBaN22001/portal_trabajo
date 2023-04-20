@@ -632,6 +632,92 @@ p {
   background: #434343;
 }
 
+.site-container {
+  display: flex;
+}
+.site-container .main {
+  flex: 4;
+  width: 70%;
+}
+.site-container .aside {
+  flex: 1;
+  background: #203A43;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.site-container .aside .profile-info-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.site-container .aside .profile-info-container .img-container {
+  background-color: #FFFFFF;
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  outline: none;
+  border: 1rem solid transparent;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #0F2027;
+}
+.site-container .aside .profile-info-container .username {
+  color: #FFFFFF;
+}
+.site-container .aside .options-list .option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+.site-container .aside .options-list .option p {
+  flex: 5;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+}
+.site-container .aside .options-list .option .icon-container {
+  flex: 1;
+}
+.site-container .aside .options-list .option:hover {
+  background-color: #FFFFFF;
+  color: #203A43;
+}
+.site-container .aside .options-list .option:hover p {
+  color: #203A43;
+}
+.site-container .aside .logout-container {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+.site-container .aside .logout-container p {
+  color: #FFFFFF;
+}
+.site-container .aside .logout-container:hover {
+  background-color: #FFFFFF;
+  color: #203A43;
+}
+.site-container .aside .logout-container:hover p {
+  color: #203A43;
+}
+
 .alert {
   display: block;
   margin: 1rem auto;
