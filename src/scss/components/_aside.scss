@@ -18,28 +18,48 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .profile-info-container{
+    .profile-header-aside{
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
 
-      .img-container{
-        background-color: v.$white;
-        width: 5rem;
-        height: 5rem;
-        border: none;
-        outline: none;
-        border: 1rem solid transparent;
-        border-radius: 1rem;
+      .profile-container{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .img-container{
+          background-color: v.$white;
+          width: 5rem;
+          height: 5rem;
+          border: none;
+          outline: none;
+          border: 1rem solid transparent;
+          border-radius: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 3rem;
+          color: v.$secondaryColor;
+        }
+  
+        .username{
+          color: v.$white;
+        }
+      }
+
+      .menu-icon-container{
+        color: v.$white;
+        font-size: 3rem;
+        padding: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 3rem;
-        color: v.$secondaryColor;
-      }
-
-      .username{
-        color: v.$white;
+      
+        &:hover{
+          cursor: pointer;
+        }
       }
     }
 
@@ -56,17 +76,6 @@
         border-radius: 1rem;
         transition: all .3s ease;
 
-        p{
-          flex: 5;
-          color: v.$white;
-          transition: color .3s ease;
-        }
-
-        .icon-container{
-          flex: 1;
-        }
-
-
         &:hover{
           background-color: v.$white;
           color: v.$principalColor;
@@ -74,6 +83,21 @@
           p{
             color: v.$principalColor;
           }
+        }
+
+        p{
+          width: 80%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: v.$white;
+          transition: color .3s ease;
+        }
+
+        .icon-container{
+          width: 20%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
     }
@@ -99,6 +123,71 @@
         p{
           color: v.$principalColor;
         }
+      }
+    }
+
+    &.hide{
+      flex: 0;
+
+      .profile-header-aside, .option, .logout-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      p, .profile-container{
+        display: none;
+      }
+
+      @include m.tablet{
+        .profile-header-aside{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .profile-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+  
+            p{
+              display: inline-block;
+            }
+          }
+        }
+        
+        .options-list, .logout-container{
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include m.tablet{
+    flex-direction: column;
+
+    .aside{
+      min-height: auto;
+
+      .options-list{
+        margin: 2rem 0;
+
+        .option{
+          width: fit-content;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          column-gap: 2rem;
+
+          .icon-container{
+            width: 10%;
+            // margin-right: 2rem;
+          }
+        }
+      }
+
+      .logout-container{
+        width: fit-content;
       }
     }
   }

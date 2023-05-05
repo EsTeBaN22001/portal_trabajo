@@ -19,37 +19,42 @@
 
 	<div class="site-container">
 		<aside class="aside">
-			<div class="profile-info-container">
-				<div class="img-container">
-					<i class="fa-solid fa-user"></i>
+			<div class="profile-header-aside">
+				<div class="profile-container">
+					<div class="img-container">
+						<i class="fa-solid fa-user"></i>
+					</div>
+					<p class="username">Esteban Redón</p>
 				</div>
-				<p class="username">Esteban Redón</p>
+				<div class="menu-icon-container">
+					<i class="fa-solid fa-bars"></i>
+				</div>
 			</div>
 			<div class="options-list">
-				<div class="option">
+				<a href="#" class="option">
 					<div class="icon-container">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<p>Buscar empleo</p>
-				</div>
-				<div class="option">
+				</a>
+				<a href="#" class="option">
 					<div class="icon-container">
 						<i class="fas fa-file-alt"></i>
 					</div>
 					<p>Mis postulaciones</p>
-				</div>
-				<div class="option">
+				</a>
+				<a href="#" class="option">
 					<div class="icon-container">
 						<i class="fa-solid fa-plus"></i>
 					</div>
 					<p>Nuevo trabajo</p>
-				</div>
-				<div class="option">
+				</a>
+				<a href="#" class="option">
 					<div class="icon-container">
 						<i class="fa-solid fa-address-card"></i>
 					</div>
 					<p>Perfil</p>
-				</div>
+				</a>
 			</div>
 			<div class="logout-container">
 				<i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -63,6 +68,7 @@
 
 	<!-- Font Awesome -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js" integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/build/js/menuToggle.js"></script>
 	<?php echo $script ?? ''; ?>
 </body>
 
