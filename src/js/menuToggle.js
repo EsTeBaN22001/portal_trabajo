@@ -7,8 +7,6 @@ if(document.querySelector('.menu-icon-container')){
     aside.classList.add('hide')
   }
 
-  console.log(window.innerWidth)
-
   menuButton.addEventListener('click', function(){
     
     aside.classList.toggle('hide')

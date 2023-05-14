@@ -24,14 +24,14 @@
 					<div class="img-container">
 						<i class="fa-solid fa-user"></i>
 					</div>
-					<p class="username">Esteban Redón</p>
+					<p class="username">Tía Paola</p>
 				</div>
 				<div class="menu-icon-container">
 					<i class="fa-solid fa-bars"></i>
 				</div>
 			</div>
 			<div class="options-list">
-				<a href="#" class="option">
+				<a href="<?= $_ENV['HOST'] ?>/dashboard" class="option">
 					<div class="icon-container">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>

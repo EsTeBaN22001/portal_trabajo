@@ -1,0 +1,162 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.search-title-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: v.$white;
+  padding: 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 50px -26px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 50px -26px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 50px -26px rgba(0,0,0,0.75);
+
+  h2{
+    text-align: start;
+    width: 50%;
+    white-space: nowrap;
+  }
+
+  .search-container{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+    position: relative;
+
+    input{
+      border: .2rem solid v.$gray;
+      border-radius: 2rem;
+      padding: 1rem;
+      width: 100%;
+      outline: none;
+      transition: border .3s ease;
+
+      &:focus{
+        border: .2rem solid v.$principalColor;
+
+        & + .search-icon{
+          color: v.$principalColor;
+        }
+      }
+    }
+
+    .search-icon{
+      position: absolute;
+      top: 0.5;
+      right: 1rem;
+      font-size: 2.5rem;
+      border-radius: 50%;
+      color: v.$gray;
+      transition: color .3s ease;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+  @include m.tablet{
+    flex-direction: column;
+    gap: 2rem;
+
+    h2{
+      text-align: center;
+    }
+  }
+}
+
+.card-jobs{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @include m.tablet{
+    grid-template-columns: 1fr;
+  }
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background: v.$white;
+    padding: 2rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 50px -26px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px -26px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px -26px rgba(0,0,0,0.75);
+    
+    .card-header{
+      .title{
+        h3{
+          text-align: start;
+          font-size: 3rem;
+          font-weight: 900;
+        }
+      }
+  
+      .name-business{
+        font-size: 1.5rem;
+        color: v.$gray;
+      }
+    }
+
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .description{
+        font-size: 1.5rem;
+        color: v.$darkGray;
+      }
+
+      .required-skills{
+
+        .required-skills-title{
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        .skills-container{
+          display: flex;
+          column-gap: 1rem;
+          margin-top: .5rem;
+
+          .skill{
+            background-color: v.$principalColor;
+            padding: .5rem 1rem;
+            border-radius: 2rem;
+
+            p{
+              font-size: 1rem;
+              color: v.$white;
+            }
+          }
+        }
+      }
+
+      .salary{
+        font-size: 1.8rem;
+
+        .salary-number{
+          font-size: 2rem;
+          font-weight: 400;
+          color: v.$white;
+          background-color: v.$principalColor;
+          padding: .5rem;
+          border-radius: 1rem;
+        }
+      }
+    }
+    
+    .card-footer{
+      .date{
+        font-size: 1.5rem;
+        color: v.$gray;
+      }
+    }
+  }
+}
