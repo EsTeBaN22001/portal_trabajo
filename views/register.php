@@ -5,48 +5,48 @@
       <h1>Registrate</h1>
       <div class="field-group-container field-group-container-radio">
         <div class="field-group radio-group">
-          <input type="radio" name="type" value="alumno" id="alumno">
-          <label for="alumno">Alumno</label>
+          <input type="radio" name="type" value="worker" id="worker">
+          <label for="worker">Trabajador</label>
         </div>
         <div class="field-group radio-group">
-          <input type="radio" name="type" value="empresa" id="empresa">
-          <label for="empresa">Empresa</label>
+          <input type="radio" name="type" value="business" id="business">
+          <label for="business">Empresa</label>
         </div>
       </div>
       <div class="field-group">
         <input 
         type="text" 
-        name="nombre" 
-        id="nombre" 
+        name="name" 
+        id="name" 
         placeholder="Nombre"
-        <?php if(!empty($alumno->nombre)): ?>
-          value="<?= $alumno->nombre ?>"
+        <?php if(!empty($worker->name)): ?>
+          value="<?= $worker->name ?>"
         <?php endif ?>
-        <?php if(!empty($empresa->nombre)): ?>
-          value="<?= $empresa->nombre ?>"
+        <?php if(!empty($business->name)): ?>
+          value="<?= $business->name ?>"
         <?php endif ?>
         >
       </div>
-      <div class="field-group alumno-input">
+      <div class="field-group worker-input">
         <input 
         type="text" 
-        name="apellido" 
-        id="apellido" 
+        name="surname" 
+        id="surname" 
         placeholder="Apellido"
-        value="<?= $alumno->apellido ?? '' ?>"
+        value="<?= $worker->surname ?? '' ?>"
         >
       </div>
-      <div class="field-group alumno-input">
+      <div class="field-group worker-input">
         <input 
         type="text" 
-        name="domicilio" 
-        id="domicilio" 
+        name="domicile" 
+        id="domicile" 
         placeholder="Domicilio"
-        <?php if(!empty($alumno->domicilio)): ?>
-          value="<?= $alumno->domicilio ?>"
+        <?php if(!empty($worker->domicile)): ?>
+          value="<?= $worker->domicile ?>"
         <?php endif ?>
-        <?php if(!empty($empresa->domicilio)): ?>
-          value="<?= $empresa->domicilio ?>"
+        <?php if(!empty($business->domicile)): ?>
+          value="<?= $business->domicile ?>"
         <?php endif ?>
         >
       </div>
@@ -56,49 +56,49 @@
         name="email" 
         id="email" 
         placeholder="Ingrese su correo"
-        <?php if(!empty($alumno->email)): ?>
-          value="<?= $alumno->email ?>"
+        <?php if(!empty($worker->email)): ?>
+          value="<?= $worker->email ?>"
         <?php endif ?>
-        <?php if(!empty($empresa->email)): ?>
-          value="<?= $empresa->email ?>"
+        <?php if(!empty($business->email)): ?>
+          value="<?= $business->email ?>"
         <?php endif ?>
         >
       </div>
       <div class="field-group">
         <input 
         type="tel" 
-        name="telefono"
-        id="telefono" 
+        name="phone"
+        id="phone" 
         placeholder="Ingrese su telefono"
-        <?php if(!empty($alumno->telefono)): ?>
-          value="<?= $alumno->telefono ?>"
+        <?php if(!empty($worker->phoone)): ?>
+          value="<?= $worker->phoone ?>"
         <?php endif ?>
-        <?php if(!empty($empresa->telefono)): ?>
-          value="<?= $empresa->telefono ?>"
+        <?php if(!empty($business->phone)): ?>
+          value="<?= $business->phone ?>"
         <?php endif ?>
         >
       </div>
-      <div class="field-group-container alumno-input">
-        <div class="field-group alumno-input">
-          <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+      <div class="field-group-container worker-input">
+        <div class="field-group worker-input">
+          <label for="date">Fecha de nacimiento:</label>
         </div>
-        <div class="field-group alumno-input">
-          <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="Fecha de nacimiento">
+        <div class="field-group worker-input">
+          <input type="date" name="date" id="date" placeholder="Fecha de nacimiento">
         </div>
       </div>
       <div class="field-group">
         <input 
         type="password" 
-        name="contraseña" 
-        id="contraseña" 
+        name="password" 
+        id="password" 
         placeholder="Contraseña"
         >
       </div>
       <div class="field-group">
         <input 
         type="password" 
-        name="confirmarContraseña" 
-        id="confirmarContraseña" 
+        name="confirmPassword" 
+        id="confirmPassword" 
         placeholder="Confirmación de contraseña"
         >
       </div>
@@ -113,7 +113,7 @@
 
 $script = '
 
-<script src="/build/js/verificarTipoRegistroForm.js"></script>
+<script src="/build/js/verifyFormTypeRegistration.js"></script>
 
 ';
 

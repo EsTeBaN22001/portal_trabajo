@@ -1,2 +1,18 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+
+.no-page-container{
+  background-color: v.$white;
+  border-radius: 2rem;
+  padding: 2rem;
+  min-height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .principal-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

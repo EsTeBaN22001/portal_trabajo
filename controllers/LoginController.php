@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-use Model\Alumno;
-use Model\Empresa;
+use Model\Worker;
+use Model\Business;
 use MVC\Router;
 
 class LoginController{
@@ -16,17 +16,17 @@ class LoginController{
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
       // Verificar si se está logueando una empresa o un alumno
-      $userPost = Alumno::where('email', $_POST['email']);
+      $userPost = Worker::where('email', $_POST['email']);
 
       if($userPost){
         $userExists = $userPost;
       }else{
-        $userExists = Empresa::where('email', $_POST['email']);
+        $userExists = Business::where('email', $_POST['email']);
       }
   
       if($userExists){
 
-        $passwordVerify = password_verify($_POST['contraseña'], $userExists->contraseña);
+        $passwordVerify = password_verify($_POST['password'], $userExists->password);
 
         if($passwordVerify){
 
@@ -36,18 +36,18 @@ class LoginController{
           header('Location: ' . $_ENV['HOST'] . '/dashboard');
 
         }else{
-          $alerts = Alumno::setAlert('error', 'La contraseña es incorrecta');
+          $alerts = Worker::setAlert('error', 'La contraseña es incorrecta');
         }
 
       }else{
 
-        $alerts = Alumno::setAlert('error', 'El usuario no existe');
+        $alerts = Worker::setAlert('error', 'El usuario no existe');
 
       }
 
     }
 
-    $alerts = Alumno::getAlerts();
+    $alerts = Worker::getAlerts();
     
     $router->renderLogin('login', [
       'title' => 'Iniciar sesión',
@@ -59,32 +59,32 @@ class LoginController{
   public static function register(Router $router){
 
     // Variable por si se registra un alumno
-    $alumno = new Alumno();
+    $worker = new Worker();
 
     // Variable por si se registra una empresa
-    $empresa = new Empresa();
+    $business = new Business();
 
     $alerts = [];
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-      if($_POST['type'] == "alumno"){
+      if($_POST['type'] == "worker"){
 
-        $alumno->syncUp($_POST);
+        $worker->syncUp($_POST);
 
-        $alerts = $alumno->validateNewAccount();
+        $alerts = $worker->validateNewAccount();
   
         if(empty($alerts)){
           
           // validar la contraseña y hasearla
-          $alumno->hashPassword();
+          $worker->hashPassword();
           
           // liberar el campo de confirmar contraseña si es igual
-          unset($alumno->confirmarContraseña);
-          unset($alumno->nuevaContraseña);
+          unset($worker->confirmPassword);
+          unset($worker->newPassword);
 
           // Si no hay errores guardar en la base de datos
-          $result = $alumno->save();
+          $result = $worker->save();
 
           if($result){
             header('Location: /login?alert=success');
@@ -94,23 +94,23 @@ class LoginController{
 
       }
 
-      if($_POST['type'] == "empresa"){
+      if($_POST['type'] == "business"){
 
-        $empresa->syncUp($_POST);
+        $business->syncUp($_POST);
 
-        $alerts = $empresa->validateNewAccount();
+        $alerts = $business->validateNewAccount();
   
         if(empty($alerts)){
           
           // validar la contraseña y hasearla
-          $empresa->hashPassword();
+          $business->hashPassword();
           
           // liberar el campo de confirmar contraseña si es igual
-          unset($empresa->confirmarContraseña);
-          unset($empresa->nuevaContraseña);
+          unset($business->confirmPassword);
+          unset($business->newPassword);
 
           // Si no hay errores guardar en la base de datos
-          $result = $empresa->save();
+          $result = $business->save();
 
           if($result){
             header('Location: /login?alert=success');
@@ -125,8 +125,8 @@ class LoginController{
     $router->renderLogin('register', [
       'title' => 'Registrate',
       'alerts' => $alerts,
-      'alumno' => $alumno,
-      'empresa' => $empresa
+      'worker' => $worker,
+      'business' => $business
     ]);
   }
 

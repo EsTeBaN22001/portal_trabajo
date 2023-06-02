@@ -1,4 +1,12 @@
-<div class="container-sm section-sm search-title-container">
+<?php if (isset($_GET['at']) && $_GET['ac']): ?>
+    <div class="section-sm container-sm alerts-container">
+      <div class="alert <?= $_GET['at'] ?>">
+        <?= $_GET['ac'] ?>
+      </div>
+    </div>
+  <?php endif?>
+
+<div class="container-sm section-sm header-section-dashboard search-title-container">
   <h2>Buscar trabajo</h2>
   <div class="search-container">
     <input type="search">
@@ -7,14 +15,17 @@
 </div>
 
 <div class="container-sm section-sm card-jobs">
-  <div class="card">
+
+  <?php foreach($jobs as $job): ?>
+  
+    <div class="card bx-shadow">
      <div class="card-header">
-      <a class="title" href="#"><h3>Título Propuesta</h3></a>
-      <p class="name-business">Empresa</p>
+      <a class="title" href="#"><h3><?= $job->title ?></h3></a>
+      <p class="name-business"><?= $job->business ?></p>
     </div>
     <div class="card-body">
-      <p class="salary">Salario: <span class="salary-number">$500</span></p>
-      <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit aperiam alias earum, deserunt modi est, minima nobis id sapiente ab suscipit officia, ullam ipsum. Amet quod nihil tenetur explicabo dolorem!</p>
+      <p class="salary">Salario: <span class="salary-number"><?= $job->salary ?></span></p>
+      <p class="description"><?= $job->description ?></p>
       <div class="required-skills">
         <p class="required-skills-title">Habilidades requeridas</p>
         <div class="skills-container">
@@ -25,91 +36,22 @@
       </div>
      </div>
      <div class="card-footer">
-      <p class="date">Fecha publicación: 12/11/2023</p>
+      <p class="date">Fecha publicación: <span class="date-number"><?= $job->date ?></span></p>
      </div>
   </div>
-  <div class="card">
-     <div class="card-header">
-      <a class="title" href="#"><h3>Título Propuesta</h3></a>
-      <p class="name-business">Empresa</p>
-    </div>
-    <div class="card-body">
-      <p class="salary">Salario: <span class="salary-number">$500</span></p>
-      <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit aperiam alias earum, deserunt modi est, minima nobis id sapiente ab suscipit officia, ullam ipsum. Amet quod nihil tenetur explicabo dolorem!</p>
-      <div class="required-skills">
-        <p class="required-skills-title">Habilidades requeridas</p>
-        <div class="skills-container">
-          <div class="skill"><p>HTML</p></div>
-          <div class="skill"><p>CSS</p></div>
-          <div class="skill"><p>JavaScript</p></div>
-        </div>
-      </div>
-     </div>
-     <div class="card-footer">
-      <p class="date">Fecha publicación: 12/11/2023</p>
-     </div>
-  </div>
-  <div class="card">
-     <div class="card-header">
-      <a class="title" href="#"><h3>Título Propuesta</h3></a>
-      <p class="name-business">Empresa</p>
-    </div>
-    <div class="card-body">
-      <p class="salary">Salario: <span class="salary-number">$500</span></p>
-      <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit aperiam alias earum, deserunt modi est, minima nobis id sapiente ab suscipit officia, ullam ipsum. Amet quod nihil tenetur explicabo dolorem!</p>
-      <div class="required-skills">
-        <p class="required-skills-title">Habilidades requeridas</p>
-        <div class="skills-container">
-          <div class="skill"><p>HTML</p></div>
-          <div class="skill"><p>CSS</p></div>
-          <div class="skill"><p>JavaScript</p></div>
-        </div>
-      </div>
-     </div>
-     <div class="card-footer">
-      <p class="date">Fecha publicación: 12/11/2023</p>
-     </div>
-  </div>
-  <div class="card">
-     <div class="card-header">
-      <a class="title" href="#"><h3>Título Propuesta</h3></a>
-      <p class="name-business">Empresa</p>
-    </div>
-    <div class="card-body">
-      <p class="salary">Salario: <span class="salary-number">$500</span></p>
-      <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit aperiam alias earum, deserunt modi est, minima nobis id sapiente ab suscipit officia, ullam ipsum. Amet quod nihil tenetur explicabo dolorem!</p>
-      <div class="required-skills">
-        <p class="required-skills-title">Habilidades requeridas</p>
-        <div class="skills-container">
-          <div class="skill"><p>HTML</p></div>
-          <div class="skill"><p>CSS</p></div>
-          <div class="skill"><p>JavaScript</p></div>
-        </div>
-      </div>
-     </div>
-     <div class="card-footer">
-      <p class="date">Fecha publicación: 12/11/2023</p>
-     </div>
-  </div>
-  <div class="card">
-     <div class="card-header">
-      <a class="title" href="#"><h3>Título Propuesta</h3></a>
-      <p class="name-business">Empresa</p>
-    </div>
-    <div class="card-body">
-      <p class="salary">Salario: <span class="salary-number">$500</span></p>
-      <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit aperiam alias earum, deserunt modi est, minima nobis id sapiente ab suscipit officia, ullam ipsum. Amet quod nihil tenetur explicabo dolorem!</p>
-      <div class="required-skills">
-        <p class="required-skills-title">Habilidades requeridas</p>
-        <div class="skills-container">
-          <div class="skill"><p>HTML</p></div>
-          <div class="skill"><p>CSS</p></div>
-          <div class="skill"><p>JavaScript</p></div>
-        </div>
-      </div>
-     </div>
-     <div class="card-footer">
-      <p class="date">Fecha publicación: 12/11/2023</p>
-     </div>
-  </div>
+
+  <?php endforeach; ?>
+
 </div>
+
+<?php
+
+$script = '
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/es.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/build/js/salaryNumberFormat.js"></script>
+<script src="/build/js/dateFormat.js"></script>
+'
+
+?>

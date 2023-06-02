@@ -47,7 +47,7 @@ class ActiveRecord
 		while ($registry = $result->fetch_assoc()) {
 			$array[] = static::createObject($registry);
 		}
-
+		
 		// liberar la memoria
 		$result->free();
 
@@ -61,7 +61,7 @@ class ActiveRecord
 		$object = new static;
 
 		foreach ($registry as $key => $value) {
-			if (property_exists($object, $key)) {
+			if (!property_exists($object, $key)) {
 				$object->$key = $value;
 			}
 		}
@@ -114,6 +114,9 @@ class ActiveRecord
 		}
 		return $result;
 	}
+
+
+	// Consultas para obtener distintos datos y registros de la DB
 
 	// Todos los registros
 	public static function all()

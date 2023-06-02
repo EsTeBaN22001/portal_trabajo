@@ -6,7 +6,7 @@
     </div>
   <?php endif?>
   <div class="login-form-container">
-    <form method="POST" action="" class="form">
+    <form method="POST" class="form">
       <h1>Iniciar sesión</h1>
       <div class="field-group">
         <input
@@ -16,14 +16,13 @@
         title="Correo electrónico"
         id="email"
         placeholder="Ingrese su correo">
-        <!-- value="<?=$user->mail?>" -->
       </div>
       <div class="field-group">
         <input
         type="password"
-        name="contraseña"
+        name="password"
         title="Contraseña"
-        id="contraseña"
+        id="password"
         placeholder="Ingrese su contraseña">
       </div>
       <div class="field-group">

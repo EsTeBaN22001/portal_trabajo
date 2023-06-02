@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -419,6 +420,24 @@ img {
   margin: 2rem 0;
 }
 
+.header-section-dashboard {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.75);
+}
+.header-section-dashboard h1, .header-section-dashboard h2, .header-section-dashboard h3 {
+  text-align: start;
+}
+
+.hide {
+  display: none;
+}
+
+.bx-shadow {
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.75);
+}
+
 h1, h2, h3 {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -442,6 +461,21 @@ h3 {
 p {
   color: #141414;
   font-size: 2rem;
+}
+
+.no-page-container {
+  background-color: #FFFFFF;
+  border-radius: 2rem;
+  padding: 2rem;
+  min-height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.no-page-container .principal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .header-container {
@@ -493,12 +527,12 @@ p {
 .form {
   padding: 4rem;
   border-radius: 1rem;
-  margin: 2rem auto;
   max-width: 50rem;
-  background: #203A43;
+  margin: 2rem auto;
+  background: #FFFFFF;
 }
 .form h1 {
-  color: #FFFFFF;
+  color: #434343;
   font-size: 4rem;
   margin-bottom: 5rem;
 }
@@ -553,10 +587,9 @@ p {
   border: none;
   display: block;
   width: 100%;
-  color: #FFFFFF;
+  color: #a1a1a1;
   padding: 1rem 0;
   font-size: 2rem;
-  background-color: transparent;
   transition: all 0.3s ease;
 }
 .form .field-group label:focus,
@@ -564,47 +597,43 @@ p {
 .form .field-group textarea:focus,
 .form .field-group select:focus {
   outline: none;
-  color: #FFFFFF;
+  color: #000000;
+  border-bottom: 0.2rem solid #203A43;
 }
 .form .field-group label::-moz-placeholder, .form .field-group input::-moz-placeholder, .form .field-group textarea::-moz-placeholder, .form .field-group select::-moz-placeholder {
-  color: #FFFFFF;
+  color: #a1a1a1;
 }
 .form .field-group label::placeholder,
 .form .field-group input::placeholder,
 .form .field-group textarea::placeholder,
 .form .field-group select::placeholder {
-  color: #FFFFFF;
+  color: #a1a1a1;
 }
 .form .field-group input,
 .form .field-group textarea,
 .form .field-group select {
-  border-bottom: 0.2rem solid #FFFFFF;
+  border-bottom: 0.2rem solid #a1a1a1;
 }
-.form .field-group input {
-  color: #FFFFFF;
-}
-.form .field-group select {
-  color: #FFFFFF;
-  padding: 1rem;
+.form .field-group textarea {
+  resize: vertical;
+  height: 30rem;
+  max-height: 40rem;
 }
 .form .field-group select option {
   background-color: #434343;
   color: #FFFFFF;
 }
-.form .field-group textarea {
-  resize: none;
-  height: 15rem;
-}
 .form .field-group .button-submit {
   font-weight: bold;
   margin-top: 7rem;
-  border: 0.2rem solid #FFFFFF;
+  border: 0.2rem solid #203A43;
   border-radius: 1rem;
-  color: #FFFFFF;
+  color: #203A43;
+  background-color: transparent;
 }
 .form .field-group .button-submit:hover {
-  background-color: #FFFFFF;
-  color: #0F2027;
+  background-color: #203A43;
+  color: #FFFFFF;
 }
 .form .field-group-container-radio {
   width: 70%;
@@ -618,10 +647,6 @@ p {
        column-gap: 1rem;
   margin: 0;
   padding: 0;
-}
-
-.hide {
-  display: none;
 }
 
 ::-webkit-scrollbar {
@@ -688,6 +713,7 @@ p {
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 10;
 }
 .aside .profile-header-aside {
   display: flex;
@@ -759,7 +785,7 @@ p {
   justify-content: center;
   align-items: center;
 }
-.aside .logout-container {
+.aside .logout-container a {
   display: flex;
   align-items: center;
   -moz-column-gap: 1rem;
@@ -770,14 +796,14 @@ p {
   border-radius: 1rem;
   transition: all 0.3s ease;
 }
-.aside .logout-container p {
+.aside .logout-container a p {
   color: #FFFFFF;
 }
-.aside .logout-container:hover {
+.aside .logout-container a:hover {
   background-color: #FFFFFF;
   color: #203A43;
 }
-.aside .logout-container:hover p {
+.aside .logout-container a:hover p {
   color: #203A43;
 }
 .aside.hide {
@@ -847,13 +873,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #FFFFFF;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0px 0px 50px -26px rgba(0, 0, 0, 0.75);
 }
 .search-title-container h2 {
-  text-align: start;
   width: 50%;
   white-space: nowrap;
 }
@@ -904,12 +925,12 @@ p {
 
 .card-jobs {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 48%);
   gap: 2rem;
 }
 @media (max-width: 768px) {
   .card-jobs {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
   }
 }
 .card-jobs .card {
@@ -919,12 +940,14 @@ p {
   background: #FFFFFF;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0px 0px 50px -26px rgba(0, 0, 0, 0.75);
 }
 .card-jobs .card .card-header .title h3 {
   text-align: start;
   font-size: 3rem;
   font-weight: 900;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .card-jobs .card .card-header .name-business {
   font-size: 1.5rem;
@@ -933,11 +956,33 @@ p {
 .card-jobs .card .card-body {
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 2rem;
 }
+.card-jobs .card .card-body .salary {
+  flex: 1;
+  font-size: 1.8rem;
+}
+.card-jobs .card .card-body .salary .salary-number {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #203A43;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
 .card-jobs .card .card-body .description {
+  flex: 3;
   font-size: 1.5rem;
   color: #434343;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Número de renglones a mostrar */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-jobs .card .card-body .required-skills {
+  flex: 1;
 }
 .card-jobs .card .card-body .required-skills .required-skills-title {
   font-size: 1.5rem;
@@ -958,19 +1003,52 @@ p {
   font-size: 1rem;
   color: #FFFFFF;
 }
-.card-jobs .card .card-body .salary {
-  font-size: 1.8rem;
-}
-.card-jobs .card .card-body .salary .salary-number {
-  font-size: 2rem;
-  font-weight: 400;
-  color: #FFFFFF;
-  background-color: #203A43;
-  padding: 0.5rem;
-  border-radius: 1rem;
-}
 .card-jobs .card .card-footer .date {
   font-size: 1.5rem;
   color: #a1a1a1;
+}
+
+.login-form-container .form {
+  margin: 2rem auto;
+  background: #203A43;
+}
+.login-form-container .form h1 {
+  color: #FFFFFF;
+}
+.login-form-container .form label,
+.login-form-container .form input,
+.login-form-container .form textarea,
+.login-form-container .form select {
+  color: #a1a1a1;
+  background-color: transparent;
+}
+.login-form-container .form label:focus,
+.login-form-container .form input:focus,
+.login-form-container .form textarea:focus,
+.login-form-container .form select:focus {
+  color: #FFFFFF;
+  border-bottom: 0.2rem solid #FFFFFF;
+}
+.login-form-container .form label::-moz-placeholder, .login-form-container .form input::-moz-placeholder, .login-form-container .form textarea::-moz-placeholder, .login-form-container .form select::-moz-placeholder {
+  color: #a1a1a1;
+}
+.login-form-container .form label::placeholder,
+.login-form-container .form input::placeholder,
+.login-form-container .form textarea::placeholder,
+.login-form-container .form select::placeholder {
+  color: #a1a1a1;
+}
+.login-form-container .form input,
+.login-form-container .form textarea,
+.login-form-container .form select {
+  border-bottom: 0.2rem solid #a1a1a1;
+}
+.login-form-container .form .button-submit {
+  border: 0.2rem solid #FFFFFF;
+  color: #FFFFFF;
+}
+.login-form-container .form .button-submit:hover {
+  background-color: #FFFFFF;
+  color: #203A43;
 }
 /*# sourceMappingURL=app.css.map */
