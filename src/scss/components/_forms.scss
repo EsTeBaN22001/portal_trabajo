@@ -4,16 +4,16 @@
 .form {
   padding: 4rem;
   border-radius: 1rem;
-  margin: 2rem auto;
   max-width: 50rem;
-  background: v.$principalColor;
+  margin: 2rem auto;
+  background: v.$white;
   // background: -webkit-linear-gradient(to right, v.$gradientColor1, v.$gradientColor2, v.$gradientColor3);
   // background: linear-gradient(to right, v.$gradientColor1, v.$gradientColor2, v.$gradientColor3);
   
 
 
   h1{
-    color: v.$white;
+    color: v.$darkGray;
     font-size: 4rem;
     margin-bottom: 5rem;
   }
@@ -72,21 +72,20 @@
       border: none;
       display: block;
       width: 100%;
-      color: v.$white;
+      color: v.$gray;
       padding: 1rem 0;
       font-size: 2rem;
-      background-color: transparent;
       transition: all .3s ease;
 
       &:focus {
         outline: none;
-        color: v.$white;
-        // border-bottom: .2rem solid v.$secondaryColor;
+        color: v.$black;
+        border-bottom: .2rem solid v.$principalColor;
         
       }
 
       &::placeholder{
-        color: v.$white;
+        color: v.$gray;
       }
 
     }
@@ -94,16 +93,18 @@
     input,
     textarea,
     select {
-      border-bottom: .2rem solid v.$white;
+      border-bottom: .2rem solid v.$gray;
     }
 
-    input {
-      color: v.$white;
+    textarea{
+      resize: vertical;
+      height: 30rem;
+      max-height: 40rem;
     }
 
     select {
-      color: v.$white;
-      padding: 1rem;
+      // color: v.$gray;
+      // padding: 1rem;
 
       option {
         background-color: v.$darkGray;
@@ -111,21 +112,17 @@
       }
     }
 
-    textarea {
-      resize: none;
-      height: 15rem;
-    }
-
     .button-submit {
       font-weight: bold;
       margin-top: 7rem;
-      border: .2rem solid v.$white;
+      border: .2rem solid v.$principalColor;
       border-radius: 1rem;
-      color: v.$white;
+      color: v.$principalColor;
+      background-color: transparent;
 
       &:hover {
-        background-color: v.$white;
-        color: v.$secondaryColor;
+        background-color: v.$principalColor;
+        color: v.$white;
       }
     }
   }
@@ -143,8 +140,4 @@
     margin: 0;
     padding: 0;
   }
-}
-
-.hide{
-  display: none;
 }

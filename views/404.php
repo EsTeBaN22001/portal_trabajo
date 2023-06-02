@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página no encontrada | Equizzy</title>
+  <title>Página no encontrada | Portal Trabajo</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,30 +17,38 @@
 
 <body>
 
-  <section class="navbar-container">
-		<div class="navbar container">
-			<div class="logo">
-				<a href="<?= $_ENV['HOST'] ?>/" class="logo">equizzy<span>App</span></a>
+<div class="header-container">
+		<header class="header container-sm">
+			<div class="logo-container">
+				<a href="<?= $_SERVER['HOST'] ?>/">
+					<p class="logo">Porta<span>LT</span>rabajo</p>
+				</a>
 			</div>
-			<nav class="nav">
-				<?php if (isset($_SESSION['login']) && $_SESSION['login']): ?>
-					<a class="nav-link" href="<?=$_ENV['HOST']?>/polls/list">Ver encuestas</a>
-					<a class="nav-link logout-button" href="<?=$_ENV['HOST']?>/logout">Cerrar sesión</a>
-				<?php else: ?>
-					<a class="nav-link" href="<?=$_ENV['HOST']?>/register">Regístrate</a>
-					<a class="nav-link" href="<?=$_ENV['HOST']?>/login">Iniciar sesión</a>
-				<?php endif?>
-			</nav>
-		</div>
-	</section>
+			<div class="navbar-container">
+				<nav class="nav">
+					<?php if(isset($_SESSION['login']) && $_SESSION['login']): ?>
+						<a href="<?= $_SERVER['HOST']  ?>/profile" class="link">Perfil</a>
+						<a href="<?= $_SERVER['HOST']  ?>/logout" class="link">Cerrar sesión</a>
+						<?php else: ?>
+							<a href="<?= $_SERVER['HOST']  ?>/register" class="link">Registrate</a>
+							<a href="<?= $_SERVER['HOST']  ?>/login" class="link">Iniciar Sesión</a>
+					<?php endif ?>
+				</nav>
+			</div>
+		</header>
+	</div>
 
-  <main class="page-container">
-    <div class="principalContent">
+  <main class="section-sm container-sm page-container no-page-container bx-shadow">
+    <div class="principal-content">
       <h1>Página no encontrada</h1>
       <p>Parece que la página que estás buscando no existe.</p>
       <p> Volver a la <a href="<?= $_ENV['HOST'] ?>/">página de inicio</a></p>
     </div>
   </main>
+
+	<footer class="footer">
+		<p>&#169;Todos los derechos reservados por PortalTrabajo 2022</p>
+	</footer>
 
   <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js" integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

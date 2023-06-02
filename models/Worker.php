@@ -2,41 +2,56 @@
 
 namespace Model;
 
-class Empresa extends ActiveRecord{
+class Worker extends ActiveRecord{
 
-  protected static $table = 'empresa';
-  protected static $columnsDB = ['id', 'nombre', 'domicilio', 'email', 'telefono', 'contraseña'];
+  protected static $table = 'worker';
+  protected static $columnsDB = ['id', 'name', 'surname', 'domicile', 'email', 'phone', 'date', 'password'];
 
-  public function __construct($args = []){
+  public function __construct($args = [])
+  {
     $this->id = $args['id'] ?? null;
-    $this->nombre = $args['nombre'] ?? '';
-    $this->domicilio = $args['domicilio'] ?? '';
+    $this->name = $args['name'] ?? '';
+    $this->surname = $args['surname'] ?? '';
     $this->email = $args['email'] ?? '';
-    $this->telefono = $args['telefono'] ?? '';
-    $this->contraseña = $args['contraseña'] ?? '';
-    $this->nuevaContraseña = $args['nuevaContraseña'] ?? '';
-    $this->confirmarContraseña = $args['confirmarContraseña'] ?? '';
+    $this->phone = $args['phone'] ?? '';
+    $this->date = $args['date'] ?? '';
+    $this->password = $args['password'] ?? '';
+    $this->newPassword = $args['newPassword'] ?? '';
+    $this->confirmPassword = $args['confirmPassword'] ?? '';
   }
 
   public function validateNewAccount(){
 
-    if(!$this->nombre){
+    if(!$this->name){
       self::$alerts['error'][] = 'El nombre es incorrecto';
+    }
+
+    if(!$this->surname){
+      self::$alerts['error'][] = 'El apellido es incorrecto';
+    }
+
+    if(!$this->domicile){
+      self::$alerts['error'][] = 'El domicilio es incorrecto';
     }
     
     if(!$this->email){
       self::$alerts['error'][] = 'El correo es incorrecto';
     }
     
-    if(!$this->telefono){
+    if(!$this->phone){
       self::$alerts['error'][] = 'El telefono es incorrecto';
     }
     
-    if(!$this->contraseña){
+    if(!$this->date){
+      self::$alerts['error'][] = 'La fecha de nacimiento es incorrecta';
+    }
+
+    
+    if(!$this->password){
       self::$alerts['error'][] = 'La contraseña es incorrecta';
     }
     
-    if($this->confirmarContraseña != $this->contraseña){
+    if($this->confirmPassword != $this->password){
       self::$alerts['error'][] = 'La confirmación de la contraseña es incorrecta';
     }
 
@@ -82,17 +97,19 @@ class Empresa extends ActiveRecord{
 
     $_SESSION['login'] = true;
     $_SESSION['id'] = $this->id;
-    $_SESSION['nombre'] = trim($this->nombre);
-    $_SESSION['apellido'] = trim($this->apellido);
+    $_SESSION['name'] = trim($this->name);
+    $_SESSION['surname'] = trim($this->surname);
     $_SESSION['email'] = trim($this->email);
-    $_SESSION['telefono'] = trim($this->telefono);
-    $_SESSION['domicilio'] = trim($this->domicilio);
+    $_SESSION['phone'] = trim($this->phone);
+    $_SESSION['domicile'] = trim($this->domicile);
+    $_SESSION['date'] = trim($this->date);
+    $_SESSION['business'] = false;
 
   }
 
   public function hashPassword(){
 
-    $this->contraseña = password_hash($this->contraseña, PASSWORD_BCRYPT);
+    $this->password = password_hash($this->password, PASSWORD_BCRYPT);
 
   }
 

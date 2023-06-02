@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\DashboardController;
 use MVC\Router;
 use Controllers\IndexController;
+use Controllers\JobController;
 use Controllers\LoginController;
 
 $router = new Router();
@@ -21,6 +22,10 @@ $router->get('/logout', [LoginController::class, 'logout']);
 
 // Ruta principal para el dashboard - una vez que se inicia sesión
 $router->get('/dashboard', [DashboardController::class, 'dashboard']);
+
+// Ruta para los trabajos
+$router->get('/new-job', [JobController::class, 'newJob']);
+$router->post('/new-job', [JobController::class, 'newJob']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

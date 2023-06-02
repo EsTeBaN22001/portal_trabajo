@@ -24,7 +24,7 @@
 					<div class="img-container">
 						<i class="fa-solid fa-user"></i>
 					</div>
-					<p class="username">Tía Paola</p>
+					<p class="username"><?php echo ($_SESSION['name'] ?? '') . ' ' . ($_SESSION['surname'] ?? '') ?></p>
 				</div>
 				<div class="menu-icon-container">
 					<i class="fa-solid fa-bars"></i>
@@ -37,18 +37,22 @@
 					</div>
 					<p>Buscar empleo</p>
 				</a>
-				<a href="#" class="option">
-					<div class="icon-container">
-						<i class="fas fa-file-alt"></i>
-					</div>
-					<p>Mis postulaciones</p>
-				</a>
-				<a href="#" class="option">
-					<div class="icon-container">
-						<i class="fa-solid fa-plus"></i>
-					</div>
-					<p>Nuevo trabajo</p>
-				</a>
+				<?php if(!$_SESSION['business']): ?>
+					<a href="#" class="option">
+						<div class="icon-container">
+							<i class="fas fa-file-alt"></i>
+						</div>
+						<p>Mis postulaciones</p>
+					</a>
+				<?php endif; ?>
+				<?php if($_SESSION['business']): ?>
+					<a href="<?= $_ENV['HOST'] ?>/new-job" class="option">
+						<div class="icon-container">
+							<i class="fa-solid fa-plus"></i>
+						</div>
+						<p>Nuevo trabajo</p>
+					</a>	
+				<?php endif; ?>
 				<a href="#" class="option">
 					<div class="icon-container">
 						<i class="fa-solid fa-address-card"></i>
@@ -57,8 +61,10 @@
 				</a>
 			</div>
 			<div class="logout-container">
-				<i class="fa-solid fa-arrow-right-from-bracket"></i>
-				<p>Cerrar sesión</p>
+				<a href="<?= $_ENV['HOST'] ?>/logout">
+					<i class="fa-solid fa-arrow-right-from-bracket"></i>
+					<p>Cerrar sesión</p>
+				</a>
 			</div>
 		</aside>
 		<main class="main">

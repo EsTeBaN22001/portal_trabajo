@@ -1,0 +1,49 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login-form-container{
+  .form{
+    margin: 2rem auto;
+    background: v.$principalColor;
+
+    h1{
+      color: v.$white;
+    }
+
+    label,
+    input,
+    textarea,
+    select {
+      color: v.$gray;
+      background-color: transparent;
+
+      &:focus {
+        color: v.$white;
+        border-bottom: .2rem solid v.$white;
+        
+      }
+
+      &::placeholder{
+        color: v.$gray;
+      }
+
+    }
+
+    input,
+    textarea,
+    select {
+      border-bottom: .2rem solid v.$gray;
+    }
+
+    .button-submit {
+      border: .2rem solid v.$white;
+      color: v.$white;
+
+      &:hover {
+        background-color: v.$white;
+        color: v.$principalColor;
+      }
+    }
+    
+  }
+}
