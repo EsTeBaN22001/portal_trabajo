@@ -33,6 +33,24 @@
       placeholder="Ingresa el salario">
     </div>
 
+    <div class="field-group required-skills">
+      <h2>Habilidades requeridas</h2>
+      <select class="select-skills">
+
+        <option value="" selected disabled>Selecciona las habilidades requeridas</option>
+      
+        <?php foreach ($skills as $skill): ?>
+        
+          <option value="<?= $skill->id ?>"><?= $skill->title ?></option>
+
+        <?php endforeach; ?>
+
+      </select>
+
+      <div class="skills-container">
+      </div>
+    </div>
+
     <div class="field-group">
       <input
       class="button-submit"
@@ -41,3 +59,13 @@
     </div>
   </form>
 </section>
+
+<?php 
+
+$script = '
+
+<script src="build/js/addSkillNewJob.js"></script>
+
+'
+
+?>

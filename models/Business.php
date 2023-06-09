@@ -79,6 +79,7 @@ class Business extends ActiveRecord{
     
     session_unset();
 
+    $_SESSION['login'] = true;
     $_SESSION['id'] = $this->id;
     $_SESSION['name'] = trim($this->name);
     $_SESSION['email'] = trim($this->email);

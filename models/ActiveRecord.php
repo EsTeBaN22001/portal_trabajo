@@ -42,6 +42,7 @@ class ActiveRecord
 		// Consultar la base de datos
 		$result = self::$db->query($query);
 
+		
 		// Iterar los resultados
 		$array = [];
 		while ($registry = $result->fetch_assoc()) {
@@ -59,11 +60,9 @@ class ActiveRecord
 	protected static function createObject($registry)
 	{
 		$object = new static;
-
+		
 		foreach ($registry as $key => $value) {
-			if (!property_exists($object, $key)) {
-				$object->$key = $value;
-			}
+			$object->$key = $value;
 		}
 
 		return $object;

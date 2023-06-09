@@ -12,6 +12,7 @@ class Worker extends ActiveRecord{
     $this->id = $args['id'] ?? null;
     $this->name = $args['name'] ?? '';
     $this->surname = $args['surname'] ?? '';
+    $this->domicile = $args['domicile'] ?? '';
     $this->email = $args['email'] ?? '';
     $this->phone = $args['phone'] ?? '';
     $this->date = $args['date'] ?? '';

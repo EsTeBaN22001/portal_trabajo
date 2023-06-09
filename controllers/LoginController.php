@@ -23,13 +23,14 @@ class LoginController{
       }else{
         $userExists = Business::where('email', $_POST['email']);
       }
-  
+
+      
       if($userExists){
-
+        
         $passwordVerify = password_verify($_POST['password'], $userExists->password);
-
+        
         if($passwordVerify){
-
+          
           // Iniciar la sesión con $_SESSION
           $userExists->startSession();
 

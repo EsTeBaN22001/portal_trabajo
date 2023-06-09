@@ -988,24 +988,37 @@ p {
   font-size: 1.5rem;
   font-weight: bold;
 }
-.card-jobs .card .card-body .required-skills .skills-container {
+.card-jobs .card .card-footer .date {
+  font-size: 1.5rem;
+  color: #a1a1a1;
+}
+
+.form .required-skills {
+  margin: 2rem 0;
+}
+.form .required-skills h2 {
+  margin-top: 5rem;
+  text-align: start;
+  font-size: 2.5rem;
+}
+.form .required-skills .select-skills {
+  margin: 3rem 0;
+}
+
+.skills-container {
   display: flex;
   -moz-column-gap: 1rem;
        column-gap: 1rem;
   margin-top: 0.5rem;
 }
-.card-jobs .card .card-body .required-skills .skills-container .skill {
+.skills-container .skill {
   background-color: #203A43;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
 }
-.card-jobs .card .card-body .required-skills .skills-container .skill p {
+.skills-container .skill p {
   font-size: 1rem;
   color: #FFFFFF;
-}
-.card-jobs .card .card-footer .date {
-  font-size: 1.5rem;
-  color: #a1a1a1;
 }
 
 .login-form-container .form {

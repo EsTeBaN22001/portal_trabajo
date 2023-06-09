@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use Model\ActiveRecord;
-use Model\Job;
 use MVC\Router;
 
 class DashboardController{
