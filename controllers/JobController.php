@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-use Model\ActiveRecord;
 use Model\Job;
 use Model\Skills;
 use Model\Skills_job;

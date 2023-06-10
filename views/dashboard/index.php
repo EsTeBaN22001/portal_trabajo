@@ -29,9 +29,11 @@
       <div class="required-skills">
         <p class="required-skills-title">Habilidades requeridas</p>
         <div class="skills-container">
-          <div class="skill"><p>HTML</p></div>
-          <div class="skill"><p>CSS</p></div>
-          <div class="skill"><p>JavaScript</p></div>
+        
+          <?php foreach($job->skills as $skill): ?>
+            <div class="skill"><p><?= $skill ?></p></div>
+          <?php endforeach; ?>
+          
         </div>
       </div>
      </div>
