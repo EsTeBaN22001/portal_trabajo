@@ -17,8 +17,6 @@ class JobController{
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-      // debugstop($_POST);
-
       // Crear un nuevo trabajo
       $job = new Job($_POST);
       $job->id_business = $_SESSION['id'];

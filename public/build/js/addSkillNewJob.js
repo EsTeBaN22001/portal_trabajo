@@ -40,6 +40,25 @@ function addSkillTag(id, name){
   hiddenInput.name = 'skills[]';
   hiddenInput.value = id;
 
-  skillsContainer.appendChild(hiddenInput)  
+  skillsContainer.appendChild(hiddenInput)
 
+  // Agregar el evento de doble clic para eliminar la skill
+  skill.addEventListener('dblclick', function() {
+    removeSkill(skill, hiddenInput, id);
+  });
+
+}
+
+function removeSkill(skillElement, hiddenInput, skillId) {
+  // Eliminar el elemento del DOM
+  skillElement.remove();
+
+  // Eliminar el input:hidden del DOM
+  hiddenInput.remove();
+
+  // Eliminar el id de la skill del array
+  const index = idSelectedSkills.indexOf(skillId);
+  if (index !== -1) {
+    idSelectedSkills.splice(index, 1);
+  }
 }

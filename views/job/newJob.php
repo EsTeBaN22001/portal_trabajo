@@ -46,7 +46,7 @@
         <?php endforeach; ?>
 
       </select>
-
+      <p class="info-input">Doble click para eliminar</p>
       <div class="skills-container">
       </div>
     </div>

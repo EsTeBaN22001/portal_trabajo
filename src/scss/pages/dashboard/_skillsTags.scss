@@ -10,6 +10,10 @@
     background-color: v.$principalColor;
     padding: .5rem 1rem;
     border-radius: 2rem;
+
+    &:hover{
+      cursor: pointer;
+    }
   
     p{
       font-size: 1.5rem;

@@ -649,6 +649,11 @@ p {
   padding: 0;
 }
 
+.info-input {
+  font-size: 1.5rem;
+  color: #a1a1a1;
+}
+
 ::-webkit-scrollbar {
   background: #000000;
 }
@@ -1015,6 +1020,9 @@ p {
   background-color: #203A43;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
+}
+.skills-container .skill:hover {
+  cursor: pointer;
 }
 .skills-container .skill p {
   font-size: 1.5rem;
