@@ -18,7 +18,7 @@
 <body>
 
 	<div class="site-container">
-		<aside class="aside">
+		<aside class="aside hide">
 			<div class="profile-header-aside">
 				<div class="profile-container">
 					<div class="img-container">

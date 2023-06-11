@@ -358,6 +358,12 @@ body {
   margin: 0 auto;
 }
 
+.container-ultra-sm {
+  width: 70%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .section {
   margin: 5rem auto;
   margin-top: 12rem;
@@ -378,6 +384,16 @@ body {
   }
 }
 
+.section-ultra-sm {
+  margin: 3rem auto;
+  margin-top: 3rem;
+}
+@media (max-width: 768px) {
+  .section-ultra-sm {
+    margin-top: 2.5rem;
+  }
+}
+
 .section-lg {
   margin: 25rem auto;
   margin-top: 10rem;
@@ -386,6 +402,12 @@ body {
   .section-lg {
     margin-top: 5rem;
   }
+}
+
+.section-card-styles {
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 a {
@@ -938,7 +960,8 @@ p {
     grid-template-columns: 100%;
   }
 }
-.card-jobs .card {
+
+.card {
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -946,7 +969,7 @@ p {
   padding: 2rem;
   border-radius: 1rem;
 }
-.card-jobs .card .card-header .title h3 {
+.card .card-header .title h3 {
   text-align: start;
   font-size: 3rem;
   font-weight: 900;
@@ -954,21 +977,21 @@ p {
   overflow: hidden;
   white-space: nowrap;
 }
-.card-jobs .card .card-header .name-business {
+.card .card-header .name-business {
   font-size: 1.5rem;
   color: #a1a1a1;
 }
-.card-jobs .card .card-body {
+.card .card-body {
   display: flex;
   flex-direction: column;
   height: 100%;
   gap: 2rem;
 }
-.card-jobs .card .card-body .salary {
+.card .card-body .salary {
   flex: 1;
   font-size: 1.8rem;
 }
-.card-jobs .card .card-body .salary .salary-number {
+.card .card-body .salary .salary-number {
   font-size: 2rem;
   font-weight: 400;
   color: #FFFFFF;
@@ -976,7 +999,7 @@ p {
   padding: 0.5rem;
   border-radius: 1rem;
 }
-.card-jobs .card .card-body .description {
+.card .card-body .description {
   flex: 3;
   font-size: 1.5rem;
   color: #434343;
@@ -986,16 +1009,69 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card-jobs .card .card-body .required-skills {
+.card .card-body .required-skills {
   flex: 1;
 }
-.card-jobs .card .card-body .required-skills .required-skills-title {
+.card .card-body .required-skills .required-skills-title {
   font-size: 1.5rem;
   font-weight: bold;
 }
-.card-jobs .card .card-footer .date {
+.card .card-footer .date {
   font-size: 1.5rem;
   color: #a1a1a1;
+}
+
+.view-job-container .title h1 {
+  text-align: start;
+  font-size: 4rem;
+}
+.view-job-container .name-business {
+  text-align: start;
+  color: #a1a1a1;
+}
+.view-job-container .salary {
+  font-size: 1.8rem;
+}
+.view-job-container .salary .salary-number {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #203A43;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.view-job-container .required-skills-title {
+  margin-bottom: 1rem;
+}
+.view-job-container .date .date-number {
+  font-weight: bold;
+}
+.view-job-container .postulation-button {
+  background-color: #203A43;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 400;
+  display: inline-block;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  transition-property: background-color;
+  transition-duration: 0.15s;
+  text-align: center;
+  margin-top: 0;
+  width: 100%;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .view-job-container .postulation-button {
+    width: auto;
+  }
+}
+.view-job-container .postulation-button:hover {
+  background-color: #101c20;
+  cursor: pointer;
 }
 
 .form .required-skills {

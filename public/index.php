@@ -23,10 +23,13 @@ $router->get('/logout', [LoginController::class, 'logout']);
 // Ruta principal para el dashboard - una vez que se inicia sesión
 $router->get('/dashboard', [DashboardController::class, 'dashboard']);
 
-// Ruta para los trabajos
+// RUTAS PARA LOS TRABAJOS
+// Crear trabajo
 $router->get('/new-job', [JobController::class, 'newJob']);
 $router->post('/new-job', [JobController::class, 'newJob']);
 
+// Ver trabajo
+$router->get('/view-job', [JobController::class, 'viewJob']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->checkRoutes();

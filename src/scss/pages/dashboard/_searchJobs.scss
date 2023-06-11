@@ -69,80 +69,80 @@
   @include m.tablet{
     grid-template-columns: 100%;
   }
+}
 
-  .card{
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background: v.$white;
+  padding: 2rem;
+  border-radius: 1rem;
+  
+  .card-header{
+    .title{
+      h3{
+        text-align: start;
+        font-size: 3rem;
+        font-weight: 900;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .name-business{
+      font-size: 1.5rem;
+      color: v.$gray;
+    }
+  }
+
+  .card-body{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    background: v.$white;
-    padding: 2rem;
-    border-radius: 1rem;
-    
-    .card-header{
-      .title{
-        h3{
-          text-align: start;
-          font-size: 3rem;
-          font-weight: 900;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-        }
+    height: 100%;
+    gap: 2rem;
+
+    .salary{
+      flex: 1;
+      font-size: 1.8rem;
+
+      .salary-number{
+        font-size: 2rem;
+        font-weight: 400;
+        color: v.$white;
+        background-color: v.$principalColor;
+        padding: .5rem;
+        border-radius: 1rem;
       }
+    }
+    
+    .description{
+      flex: 3;
+      font-size: 1.5rem;
+      color: v.$darkGray;
+       display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3; /* Número de renglones a mostrar */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .required-skills{
+      flex: 1;
+
+      .required-skills-title{
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+    }
+  }
   
-      .name-business{
-        font-size: 1.5rem;
-        color: v.$gray;
-      }
-    }
-
-    .card-body{
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      gap: 2rem;
-
-      .salary{
-        flex: 1;
-        font-size: 1.8rem;
-
-        .salary-number{
-          font-size: 2rem;
-          font-weight: 400;
-          color: v.$white;
-          background-color: v.$principalColor;
-          padding: .5rem;
-          border-radius: 1rem;
-        }
-      }
-      
-      .description{
-        flex: 3;
-        font-size: 1.5rem;
-        color: v.$darkGray;
-         display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3; /* Número de renglones a mostrar */
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .required-skills{
-        flex: 1;
-
-        .required-skills-title{
-          font-size: 1.5rem;
-          font-weight: bold;
-        }
-
-      }
-    }
-    
-    .card-footer{
-      .date{
-        font-size: 1.5rem;
-        color: v.$gray;
-      }
+  .card-footer{
+    .date{
+      font-size: 1.5rem;
+      color: v.$gray;
     }
   }
 }

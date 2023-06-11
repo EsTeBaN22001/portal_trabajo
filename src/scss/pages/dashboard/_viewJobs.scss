@@ -1,0 +1,49 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.view-job-container{
+
+  .title{
+    h1{
+      text-align: start;
+      font-size: 4rem;
+    }
+  }
+
+  .name-business{
+    text-align: start;
+    color: v.$gray;
+  }
+
+  .salary{
+    font-size: 1.8rem;
+
+    .salary-number{
+      font-size: 2rem;
+      font-weight: 400;
+      color: v.$white;
+      background-color: v.$principalColor;
+      padding: .5rem;
+      border-radius: 1rem;
+    }
+  }
+
+  .required-skills-title{
+    margin-bottom: 1rem;
+  }
+
+  .date{
+    
+    .date-number{
+      font-weight: bold;
+    }
+  }
+
+  .postulation-button{
+    @include m.button(v.$principalColor, v.$white);
+    margin-top: 0;
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+}

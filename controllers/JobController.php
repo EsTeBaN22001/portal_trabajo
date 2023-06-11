@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Model\ActiveRecord;
+use Model\Business;
 use Model\Job;
 use Model\Skills;
 use Model\Skills_job;
@@ -65,6 +67,45 @@ class JobController{
       'title' => 'Nuevo Trabajo',
       'alerts' => $alerts,
       'skills' => $skills
+    ]);
+
+  }
+
+  public static function viewJob(Router $router){
+
+    if(!isset($_GET['id']) || empty($_GET['id'])){
+      header('Location: ' . $_ENV['HOST'] . '/dashboard');
+    }
+
+
+    if(isset($_GET['id'])){
+
+      $id = $_GET['id'];
+      $query = 'SELECT jobs.id, jobs.title, jobs.description, jobs.date, jobs.salary, business.name AS business, GROUP_CONCAT(skills.title) AS skills
+      FROM jobs
+      INNER JOIN business ON jobs.id_business = business.id
+      INNER JOIN skills_job ON jobs.id = skills_job.id_job
+      INNER JOIN skills ON skills_job.id_skill = skills.id
+      WHERE jobs.id = ' . $id . '
+      GROUP BY jobs.id';
+
+      $job = ActiveRecord::consultSQL($query);
+      $job = array_shift($job);
+
+      // Convertir el string de skills en un array
+      $job->skills = explode(',', $job->skills);
+
+      
+      // Si no existe un trabajo redirigir al usuario al dashboard
+      if(!$job){
+        header('Location: ' . $_ENV['HOST'] . '/dashboard');
+      }
+      
+    }
+    
+    $router->render('job/viewJob', [
+      'title' => $job->title,
+      'job' => $job
     ]);
 
   }
