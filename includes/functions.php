@@ -18,3 +18,8 @@ function sanitizeHTML($html) : string {
 	$s = htmlspecialchars($html);
 	return $s;
 }
+
+// Redireccionar a una url
+function redirect($url){
+	header("Location: " . $_ENV['HOST'] . $url);
+}

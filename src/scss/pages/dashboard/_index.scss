@@ -1,4 +1,3 @@
-@forward 'searchJobs';
-@forward 'viewJobs';
-@forward 'newJob';
+@use 'jobs';
+@use 'profile';
 @forward 'skillsTags';

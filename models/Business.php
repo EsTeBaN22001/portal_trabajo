@@ -62,13 +62,13 @@ class Business extends ActiveRecord{
     if(!$this->name){
       self::$alerts['error'][] = 'El nombre es incorrecto';
     }
-
-    if(!$this->surname){
-      self::$alerts['error'][] = 'El apellido es incorrecto';
-    }
-
+    
     if(!$this->email){
       self::$alerts['error'][] = 'El correo es incorrecto';
+    }
+    
+    if(!$this->phone){
+      self::$alerts['error'][] = 'El telefono es incorrecto';
     }
 
     return self::$alerts;

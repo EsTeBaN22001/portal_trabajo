@@ -84,8 +84,20 @@ class Worker extends ActiveRecord{
       self::$alerts['error'][] = 'El apellido es incorrecto';
     }
 
+    if(!$this->domicile){
+      self::$alerts['error'][] = 'El domicilio es incorrecto';
+    }
+    
     if(!$this->email){
       self::$alerts['error'][] = 'El correo es incorrecto';
+    }
+    
+    if(!$this->phone){
+      self::$alerts['error'][] = 'El telefono es incorrecto';
+    }
+    
+    if(!$this->date){
+      self::$alerts['error'][] = 'La fecha de nacimiento es incorrecta';
     }
 
     return self::$alerts;

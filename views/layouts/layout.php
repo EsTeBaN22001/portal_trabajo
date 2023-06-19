@@ -18,7 +18,7 @@
 <body>
 
 	<div class="site-container">
-		<aside class="aside hide">
+		<aside class="aside">
 			<div class="profile-header-aside">
 				<div class="profile-container">
 					<div class="img-container">
@@ -53,7 +53,7 @@
 						<p>Nuevo trabajo</p>
 					</a>	
 				<?php endif; ?>
-				<a href="#" class="option">
+				<a href="<?= $_ENV['HOST'] ?>/profile" class="option">
 					<div class="icon-container">
 						<i class="fa-solid fa-address-card"></i>
 					</div>
