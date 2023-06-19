@@ -1110,6 +1110,9 @@ p {
   font-size: 3rem;
   color: #FFFFFF;
 }
+.profile-header .profile-container .text-container .link-change-password {
+  font-size: 1.5rem;
+}
 .profile-header .logout-container a {
   display: flex;
   align-items: center;

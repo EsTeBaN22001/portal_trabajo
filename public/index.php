@@ -25,6 +25,10 @@ $router->get('/logout', [LoginController::class, 'logout']);
 $router->get('/profile', [ProfileController::class, 'profile']);
 $router->post('/profile', [ProfileController::class, 'profile']);
 
+// Rutas para cambiar la contraseña
+$router->get('/change-password', [ProfileController::class, 'changePassword']);
+$router->post('/change-password', [ProfileController::class, 'changePassword']);
+
 // Ruta principal para el dashboard - una vez que se inicia sesión
 $router->get('/dashboard', [DashboardController::class, 'dashboard']);
 
