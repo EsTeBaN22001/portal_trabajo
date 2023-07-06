@@ -56,6 +56,12 @@ class ActiveRecord
 		return $array;
 	}
 
+	// Consulta SQL sin crear objetos
+	public static function consultStaticSQL($query)
+	{
+		return self::$db->query($query);
+	}
+
 	// Crea el objeto en memoria que es igual al de la BD
 	protected static function createObject($registry)
 	{
@@ -170,7 +176,7 @@ class ActiveRecord
 		$query .= " ) VALUES ('";
 		$query .= join("', '", array_values($attributes));
 		$query .= "') ";
-
+		
 		// Resultado de la consulta
 		$result = self::$db->query($query);
 		return [
@@ -245,5 +251,20 @@ class ActiveRecord
 		$query = "SELECT * FROM " . static::$table  . " WHERE ${column} = '${id}'";
 		$result = self::consultSQL($query);
 		if(!$result) header('Location: /polls/list');
+	}
+
+	// Función específica para eliminar las skills de de un worker
+	public static function deleteSkillsWorkerById($idWorker)
+	{
+		$query = "DELETE FROM skills_workers WHERE id_worker = " . $idWorker . ";";
+		$result = self::consultSQL($query);
+		debugstop($result);
+	}
+
+	// Función específica para insertar las skills en la tabla skills_workers
+	public static function addSkillsWorkers($idWorker, $idSkill){
+		$query = "INSERT INTO skills_workers (id_worker, id_skill) values (" . $idWorker . ", " . $idSkill . ");";
+		
+		return self::$db->query($query);
 	}
 }

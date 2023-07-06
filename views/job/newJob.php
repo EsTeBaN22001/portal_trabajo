@@ -47,7 +47,7 @@
 
       </select>
       <p class="info-input">Doble click para eliminar</p>
-      <div class="skills-container">
+      <div class="skills">
       </div>
     </div>
 
@@ -64,6 +64,7 @@
 
 $script = '
 
+<script src="/build/js/skillsTagCrudFunctions.js"></script>
 <script src="build/js/addSkillNewJob.js"></script>
 
 '

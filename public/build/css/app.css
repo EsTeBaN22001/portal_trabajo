@@ -1129,21 +1129,55 @@ p {
   color: #FFFFFF;
 }
 
-.skills-container {
+.profile-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+}
+.profile-content .user-info {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.profile-content .skills-list-container h2 {
+  text-align: start;
+}
+.profile-content .skills-list-container .skills {
+  margin-top: 2rem;
+}
+.profile-content .add-skills-container {
+  padding: 0;
+}
+.profile-content .add-skills-container h2 {
+  margin-top: 0;
+}
+.profile-content .add-skills-container .field-group {
+  margin: 0;
+}
+.profile-content .add-skills-container .required-skills {
+  margin-top: 2rem;
+}
+.profile-content .add-skills-container .required-skills h2 {
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+.skills {
   display: flex;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 0.5rem;
 }
-.skills-container .skill {
+
+.skill {
   background-color: #203A43;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
 }
-.skills-container .skill:hover {
+.skill:hover {
   cursor: pointer;
 }
-.skills-container .skill p {
+.skill p {
   font-size: 1.5rem;
   color: #FFFFFF;
 }

@@ -28,7 +28,7 @@
         <p class="description"><?= $job->description ?></p>
         <div class="required-skills">
           <p class="required-skills-title">Habilidades requeridas</p>
-          <div class="skills-container">
+          <div class="skills">
           
             <?php foreach($job->skills as $skill): ?>
               <div class="skill"><p><?= $skill ?></p></div>
