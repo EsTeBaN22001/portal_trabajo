@@ -48,6 +48,14 @@ class Job extends ActiveRecord{
 
   }
 
+  public static function isPostulated($id_job, $id_worker){
+
+    $query = 'SELECT * FROM postulations WHERE id_job = ' . $id_job . ' AND id_worker = ' . $id_worker . ';';
+
+    return ActiveRecord::consultSQL($query);
+
+  }
+
 }
 
 ?>

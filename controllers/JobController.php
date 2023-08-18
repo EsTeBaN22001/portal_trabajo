@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use Model\ActiveRecord;
-use Model\Business;
 use Model\Job;
 use Model\Skills;
 use Model\Skills_job;
@@ -77,6 +76,9 @@ class JobController{
       header('Location: ' . $_ENV['HOST'] . '/dashboard');
     }
 
+    // Variable de estado para saber si el trabajador ya se postuló
+    $isPostulated = false;
+
 
     if(isset($_GET['id'])){
 
@@ -100,12 +102,20 @@ class JobController{
       if(!$job){
         redirect('/dashboard');
       }
+
+      // Verificar si el trabajador ya se postuló
+      $postulation = Job::isPostulated($job->id, $_SESSION['id']);
+
+      if(!empty($postulation)){
+        $isPostulated = true;
+      }
       
     }
     
     $router->render('job/viewJob', [
       'title' => $job->title,
-      'job' => $job
+      'job' => $job,
+      'isPostulated' => $isPostulated
     ]);
 
   }

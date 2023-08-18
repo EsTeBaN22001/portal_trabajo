@@ -16,7 +16,7 @@
     
     <div class="card bx-shadow">
       <div class="card-header">
-        <span class="title"><h3><?= $postulation->title ?></h3></span>
+        <a class="title"><h3><?= $postulation->title ?></h3></a>
         <p class="name-business"><?= $postulation->business ?></p>
       </div>
       <div class="card-body">

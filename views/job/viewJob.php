@@ -23,10 +23,20 @@
   
   <?php if(!$_SESSION['business']): ?>
     <div class="button-container container-sm section-ultra-sm">
-      <form action="<?= $_ENV['HOST'] ?>/postulate" method="POST">
-        <input type="hidden" name="id_job" value="<?= $job->id ?>">
-        <button type="submit" class="bx-shadow postulation-button">Postularme</button>
-      </form>
+
+      <?php if(!$isPostulated): ?>
+
+        <form action="<?= $_ENV['HOST'] ?>/postulate" method="POST">
+          <input type="hidden" name="id_job" value="<?= $job->id ?>">
+          <button type="submit" class="bx-shadow postulation-button">Postularme</button>
+        </form>
+
+      <?php else: ?>
+
+        <p class="postulated-text bx-shadow section-ultra-sm section-card-styles">Ya se postuló a este trabajo. Ver <a href="<?= $_ENV['HOST'] ?>/my-postulations">Mis postulaciones</a></p>
+
+      <?php endif ?>
+
     </div>
   <?php endif; ?>
 

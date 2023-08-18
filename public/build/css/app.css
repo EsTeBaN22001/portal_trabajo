@@ -1087,6 +1087,16 @@ p {
   background-color: #101c20;
   cursor: pointer;
 }
+.view-job-container .postulated-text {
+  text-align: center;
+}
+.view-job-container .postulated-text a {
+  color: #203A43;
+  font-weight: bold;
+}
+.view-job-container .postulated-text a:hover {
+  text-decoration: underline;
+}
 
 .form .required-skills {
   margin: 2rem 0;

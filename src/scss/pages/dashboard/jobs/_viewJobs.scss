@@ -46,4 +46,18 @@
     text-transform: uppercase;
   }
 
+  .postulated-text{
+    text-align: center;
+
+    a{
+      color: v.$principalColor;
+      font-weight: bold;
+
+      &:hover{
+        text-decoration: underline;
+      }
+      
+    }
+  }
+
 }
