@@ -10,7 +10,7 @@
     <p class="section-ultra-sm description"><?= $job->description ?></p>
     <div class="section-ultra-sm required-skills">
       <p class="required-skills-title">Habilidades requeridas</p>
-      <div class="skills-container">
+      <div class="skills">
       
         <?php foreach($job->skills as $skill): ?>
           <div class="skill"><p><?= $skill ?></p></div>
@@ -23,7 +23,10 @@
   
   <?php if(!$_SESSION['business']): ?>
     <div class="button-container container-sm section-ultra-sm">
-      <a href="#" class="bx-shadow postulation-button">Postularme</a>
+      <form action="<?= $_ENV['HOST'] ?>/postulate" method="POST">
+        <input type="hidden" name="id_job" value="<?= $job->id ?>">
+        <button type="submit" class="bx-shadow postulation-button">Postularme</button>
+      </form>
     </div>
   <?php endif; ?>
 

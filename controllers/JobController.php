@@ -98,7 +98,7 @@ class JobController{
       
       // Si no existe un trabajo redirigir al usuario al dashboard
       if(!$job){
-        header('Location: ' . $_ENV['HOST'] . '/dashboard');
+        redirect('/dashboard');
       }
       
     }

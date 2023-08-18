@@ -1,11 +1,10 @@
-const { src, dest, watch , series, parallel } = require('gulp');
+const { src, dest, watch, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('autoprefixer');
 const postcss    = require('gulp-postcss')
 const sourcemaps = require('gulp-sourcemaps')
 const cssnano = require('cssnano');
 const terser = require('gulp-terser-js');
-const squoosh = require('gulp-libsquoosh');
 const cache = require('gulp-cache');
 const webp = require('gulp-webp');
 
@@ -49,7 +48,6 @@ function javascriptDev(){
 
 function img() {
 	return src(paths.img)
-		.pipe(cache(squoosh()))
 		.pipe( webp() )
 		.pipe(dest('public/build/img'))
 }

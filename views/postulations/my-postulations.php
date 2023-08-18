@@ -1,36 +1,32 @@
-<?php if (isset($_GET['at']) && $_GET['ac']): ?>
+<div class="container-sm section-sm header-section-dashboard">
+  <h2>Mis postulaciones</h2>
+</div>
+
+<?php if (isset($_GET['at']) && $_GET['am']): ?>
   <div class="section-sm container-sm alerts-container">
     <div class="alert <?= $_GET['at'] ?>">
-      <?= $_GET['ac'] ?>
+      <?= $_GET['am'] ?>
     </div>
   </div>
 <?php endif?>
 
-<div class="container-sm section-sm header-section-dashboard search-title-container">
-  <h2>Buscar trabajo</h2>
-  <div class="search-container">
-    <input type="search">
-    <i class="search-icon fa-solid fa-magnifying-glass"></i>
-  </div>
-</div>
+<div class="container-sm section-sm postulations-container card-jobs">
 
-<div class="container-sm section-sm card-jobs">
-
-  <?php foreach($jobs as $job): ?>
-  
+  <?php foreach($postulations as $postulation): ?>
+    
     <div class="card bx-shadow">
       <div class="card-header">
-        <a class="title" href="<?= $_ENV['HOST'] ?>/view-job?id=<?= $job->id ?>"><h3><?= $job->title ?></h3></a>
-        <p class="name-business"><?= $job->business ?></p>
+        <span class="title"><h3><?= $postulation->title ?></h3></span>
+        <p class="name-business"><?= $postulation->business ?></p>
       </div>
       <div class="card-body">
-        <p class="salary">Salario: <span class="salary-number"><?= $job->salary ?></span></p>
-        <p class="description"><?= $job->description ?></p>
+        <p class="salary">Salario: <span class="salary-number"><?= $postulation->salary ?></span></p>
+        <p class="description"><?= $postulation->description ?></p>
         <div class="required-skills">
           <p class="required-skills-title">Habilidades requeridas</p>
           <div class="skills">
           
-            <?php foreach($job->skills as $skill): ?>
+            <?php foreach($postulation->skills as $skill): ?>
               <div class="skill"><p><?= $skill ?></p></div>
             <?php endforeach; ?>
             
@@ -38,7 +34,8 @@
         </div>
       </div>
       <div class="card-footer">
-        <p class="date">Fecha de publicación: <span class="date-number"><?= $job->date ?></span></p>
+        <p class="date">Fecha de postulación: <span class="date-number"><?= $postulation->postulation_date ?></span></p>
+        <a class="delete-postulation" href="<?= $_ENV['HOST'] ?>/delete-my-postulation?id=<?= $postulation->id ?>">Eliminar postulación</a>
       </div>
     </div>
 

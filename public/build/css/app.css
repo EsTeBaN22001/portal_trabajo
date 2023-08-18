@@ -452,12 +452,12 @@ img {
   text-align: start;
 }
 
-.hide {
-  display: none;
-}
-
 .bx-shadow {
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.75);
+}
+
+.hide {
+  display: none;
 }
 
 h1, h2, h3 {
@@ -1019,6 +1019,20 @@ p {
 .card .card-footer .date {
   font-size: 1.5rem;
   color: #a1a1a1;
+}
+.card .card-footer .delete-postulation {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+.card .card-footer .delete-postulation:hover {
+  background-color: #330000;
+  cursor: pointer;
 }
 
 .view-job-container .title h1 {

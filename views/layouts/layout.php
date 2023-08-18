@@ -38,7 +38,7 @@
 					<p>Buscar empleo</p>
 				</a>
 				<?php if(!$_SESSION['business']): ?>
-					<a href="#" class="option">
+					<a href="<?= $_ENV['HOST'] ?>/my-postulations" class="option">
 						<div class="icon-container">
 							<i class="fas fa-file-alt"></i>
 						</div>

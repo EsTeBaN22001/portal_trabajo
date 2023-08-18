@@ -7,6 +7,7 @@ use MVC\Router;
 use Controllers\IndexController;
 use Controllers\JobController;
 use Controllers\LoginController;
+use Controllers\PostulationsController;
 use Controllers\ProfileController;
 
 $router = new Router();
@@ -36,6 +37,11 @@ $router->get('/dashboard', [DashboardController::class, 'dashboard']);
 $router->get('/new-job', [JobController::class, 'newJob']);
 $router->post('/new-job', [JobController::class, 'newJob']);
 $router->get('/view-job', [JobController::class, 'viewJob']);
+
+// POSTULACIONES
+$router->post('/postulate', [PostulationsController::class, 'postulate']);
+$router->get('/my-postulations', [PostulationsController::class, 'myPostulations']);
+$router->get('/delete-my-postulation', [PostulationsController::class, 'deleteMyPostulation']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->checkRoutes();
