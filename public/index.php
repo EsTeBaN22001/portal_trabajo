@@ -9,6 +9,7 @@ use Controllers\JobController;
 use Controllers\LoginController;
 use Controllers\PostulationsController;
 use Controllers\ProfileController;
+use Controllers\SkillsController;
 
 $router = new Router();
 
@@ -37,6 +38,10 @@ $router->get('/dashboard', [DashboardController::class, 'dashboard']);
 $router->get('/new-job', [JobController::class, 'newJob']);
 $router->post('/new-job', [JobController::class, 'newJob']);
 $router->get('/view-job', [JobController::class, 'viewJob']);
+
+// RUTAS PARA CREAR LAS SKILLS
+$router->get('/new-skill', [SkillsController::class, 'newSkill']);
+$router->post('/new-skill', [SkillsController::class, 'newSkill']);
 
 // POSTULACIONES
 $router->post('/postulate', [PostulationsController::class, 'postulate']);

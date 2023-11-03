@@ -26,7 +26,13 @@ class Router
 		// Arreglo de rutas protegidas...
 		$protectedRoutes = [
 			"/dashboard",
-			"/new-job"
+			"/profile",
+			"/change-password",
+			"/new-job",
+			"/view-job",
+			"/new-skill",
+			"/my-postulations",
+			"/delete-my-postulation",
 		];
 
 		$currentUrl = $_SERVER['PATH_INFO'] ?? '/';

@@ -3,6 +3,7 @@
 </section>
 
 <section class="section-sm container-sm">
+
   <form method="POST" action="" class="form bx-shadow">
     <h1>Complete el formulario</h1>
     <?php include_once __DIR__ . '/../templates/alerts.php'?>
@@ -58,6 +59,7 @@
       value="CREAR TRABAJO">
     </div>
   </form>
+  
 </section>
 
 <?php 

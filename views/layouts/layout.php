@@ -52,6 +52,12 @@
 						</div>
 						<p>Nuevo trabajo</p>
 					</a>	
+					<a href="<?= $_ENV['HOST'] ?>/new-skill" class="option">
+						<div class="icon-container">
+							<i class="fa-solid fa-plus"></i>
+						</div>
+						<p>Crear habilidad</p>
+					</a>
 				<?php endif; ?>
 				<a href="<?= $_ENV['HOST'] ?>/profile" class="option">
 					<div class="icon-container">

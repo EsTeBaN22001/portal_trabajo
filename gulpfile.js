@@ -5,7 +5,6 @@ const postcss    = require('gulp-postcss')
 const sourcemaps = require('gulp-sourcemaps')
 const cssnano = require('cssnano');
 const terser = require('gulp-terser-js');
-const cache = require('gulp-cache');
 const webp = require('gulp-webp');
 
 const paths = {

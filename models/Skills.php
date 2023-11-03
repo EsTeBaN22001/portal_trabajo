@@ -16,7 +16,7 @@ class Skills extends ActiveRecord{
   public function validateNewSkill(){
 
     if(!$this->title){
-      self::$alerts['error'][] = 'Debes seleccionar al menos una habilidad';
+      self::$alerts['error'][] = 'El título es obligatorio';
     }
 
     return self::$alerts;
