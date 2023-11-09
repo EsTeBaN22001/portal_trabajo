@@ -7,11 +7,7 @@
 <?php endif; ?>
 
 <div class="container-sm section-sm header-section-dashboard search-title-container">
-  <h2>Buscar trabajo</h2>
-  <div class="search-container">
-    <input type="search" class="search-input">
-    <i class="search-icon fa-solid fa-magnifying-glass"></i>
-  </div>
+  <h2>Categoría <b><span><?=$_GET['skill']; ?></span></b></h2>
 </div>
 
 <div class="container-sm section-sm card-jobs">
@@ -32,11 +28,10 @@
         <p class="required-skills-title">Habilidades requeridas</p>
         <div class="skills">
 
-          <?php foreach ($job->skills as $skill): ?>
-
-          <a href="<?=$_ENV['HOST']; ?>/job-by-category?skill=<?=$skill; ?>" class="skill">
+          <?php foreach ($job->all_skills as $skill): ?>
+          <div class="skill">
             <p><?=$skill; ?></p>
-          </a>
+          </div>
           <?php endforeach; ?>
 
         </div>
@@ -59,7 +54,6 @@ $script = '
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/es.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/build/js/salaryNumberFormat.js"></script>
 <script src="/build/js/dateFormat.js"></script>
-<script src="/build/js/searchJobs.js"></script>
 '
 
 ; ?>
