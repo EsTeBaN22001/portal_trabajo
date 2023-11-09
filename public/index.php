@@ -1,15 +1,15 @@
-<?php 
+<?php
 
 require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\DashboardController;
-use MVC\Router;
 use Controllers\IndexController;
 use Controllers\JobController;
 use Controllers\LoginController;
 use Controllers\PostulationsController;
 use Controllers\ProfileController;
 use Controllers\SkillsController;
+use MVC\Router;
 
 $router = new Router();
 
@@ -33,6 +33,9 @@ $router->post('/change-password', [ProfileController::class, 'changePassword']);
 
 // Ruta principal para el dashboard - una vez que se inicia sesión
 $router->get('/dashboard', [DashboardController::class, 'dashboard']);
+
+// Ruta para ver trabajos por categoría
+$router->get('/job-by-category', [DashboardController::class, 'jobByCategory']);
 
 // RUTAS PARA LOS TRABAJOS
 $router->get('/new-job', [JobController::class, 'newJob']);
