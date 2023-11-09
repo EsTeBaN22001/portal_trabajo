@@ -1,143 +1,142 @@
-<?php 
+<?php
 
 namespace Controllers;
 
-use Model\Worker;
 use Model\Business;
+use Model\Worker;
 use MVC\Router;
 
-class LoginController{
+class LoginController {
 
-  public static function login(Router $router){
-    
-    // Variable para las alertas
-    $alerts = [];
+	public static function login(Router $router) {
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		// Variable para las alertas
+		$alerts = [];
 
-      // Verificar si se está logueando una empresa o un alumno
-      $userPost = Worker::where('email', $_POST['email']);
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-      if($userPost){
-        $userExists = $userPost;
-      }else{
-        $userExists = Business::where('email', $_POST['email']);
-      }
+			// Verificar si se está logueando una empresa o un alumno
+			$userPost = Worker::where('email', $_POST['email']);
 
-      
-      if($userExists){
-        
-        $passwordVerify = password_verify($_POST['password'], $userExists->password);
-        
-        if($passwordVerify){
-          
-          // Iniciar la sesión con $_SESSION
-          $userExists->startSession();
+			if ($userPost) {
+				$userExists = $userPost;
+			} else {
+				$userExists = Business::where('email', $_POST['email']);
+			}
 
-          header('Location: ' . $_ENV['HOST'] . '/dashboard');
+			if ($userExists) {
 
-        }else{
-          $alerts = Worker::setAlert('error', 'La contraseña es incorrecta');
-        }
+				$passwordVerify = password_verify($_POST['password'], $userExists->password);
 
-      }else{
+				if ($passwordVerify) {
 
-        $alerts = Worker::setAlert('error', 'El usuario no existe');
+					// Iniciar la sesión con $_SESSION
+					$userExists->startSession();
 
-      }
+					header('Location: ' . $_ENV['HOST'] . '/dashboard');
 
-    }
+				} else {
+					$alerts = Worker::setAlert('error', 'La contraseña es incorrecta');
+				}
 
-    $alerts = Worker::getAlerts();
-    
-    $router->renderLogin('login', [
-      'title' => 'Iniciar sesión',
-      'alerts' => $alerts
-    ]);
+			} else {
 
-  }
+				$alerts = Worker::setAlert('error', 'El usuario no existe');
 
-  public static function register(Router $router){
+			}
 
-    // Variable por si se registra un alumno
-    $worker = new Worker();
+		}
 
-    // Variable por si se registra una empresa
-    $business = new Business();
+		$alerts = Worker::getAlerts();
 
-    $alerts = [];
-    
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		$router->renderLogin('login', [
+			'title' => 'Iniciar sesión',
+			'alerts' => $alerts,
+		]);
 
-      if($_POST['type'] == "worker"){
+	}
 
-        $worker->syncUp($_POST);
+	public static function register(Router $router) {
 
-        $alerts = $worker->validateNewAccount();
-  
-        if(empty($alerts)){
-          
-          // validar la contraseña y hasearla
-          $worker->hashPassword();
-          
-          // liberar el campo de confirmar contraseña si es igual
-          unset($worker->confirmPassword);
-          unset($worker->newPassword);
+		// Variable por si se registra un alumno
+		$worker = new Worker();
 
-          // Si no hay errores guardar en la base de datos
-          $result = $worker->save();
+		// Variable por si se registra una empresa
+		$business = new Business();
 
-          if($result){
-            header('Location: /login?alert=success');
-          }
-  
-        }
+		$alerts = [];
 
-      }
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-      if($_POST['type'] == "business"){
+			if ($_POST['type'] == "worker") {
 
-        $business->syncUp($_POST);
+				$worker->syncUp($_POST);
 
-        $alerts = $business->validateNewAccount();
-  
-        if(empty($alerts)){
-          
-          // validar la contraseña y hasearla
-          $business->hashPassword();
-          
-          // liberar el campo de confirmar contraseña si es igual
-          unset($business->confirmPassword);
-          unset($business->newPassword);
+				$alerts = $worker->validateNewAccount();
 
-          // Si no hay errores guardar en la base de datos
-          $result = $business->save();
+				if (empty($alerts)) {
 
-          if($result){
-            header('Location: /login?alert=success');
-          }
-  
-        }
+					// validar la contraseña y hasearla
+					$worker->hashPassword();
 
-      }
+					// liberar el campo de confirmar contraseña si es igual
+					unset($worker->confirmPassword);
+					unset($worker->newPassword);
 
-    }
-    
-    $router->renderLogin('register', [
-      'title' => 'Registrate',
-      'alerts' => $alerts,
-      'worker' => $worker,
-      'business' => $business
-    ]);
-  }
+					// Si no hay errores guardar en la base de datos
+					$result = $worker->save();
 
-  public static function logout(){
+					if ($result) {
+						header('Location: /login?alert=success');
+					}
 
-    session_unset();
+				}
 
-    header('Location: /');
+			}
 
-  }
+			if ($_POST['type'] == "business") {
+
+				$business->syncUp($_POST);
+
+				$alerts = $business->validateNewAccount();
+
+				if (empty($alerts)) {
+
+					// validar la contraseña y hasearla
+					$business->hashPassword();
+
+					// liberar el campo de confirmar contraseña si es igual
+					unset($business->confirmPassword);
+					unset($business->newPassword);
+
+					// Si no hay errores guardar en la base de datos
+					$result = $business->save();
+
+					if ($result) {
+						header('Location: /login?alert=success');
+					}
+
+				}
+
+			}
+
+		}
+
+		$router->renderLogin('register', [
+			'title' => 'Registrate',
+			'alerts' => $alerts,
+			'worker' => $worker,
+			'business' => $business,
+		]);
+	}
+
+	public static function logout() {
+
+		session_unset();
+
+		header('Location: /');
+
+	}
 
 }
 

@@ -37,7 +37,6 @@
           <a href="<?=$_ENV['HOST']; ?>/job-by-category?skill=<?=$skill; ?>" class="skill">
             <p><?=$skill; ?></p>
           </a>
-
           <?php endforeach; ?>
 
         </div>
